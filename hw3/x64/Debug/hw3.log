@@ -1,0 +1,10 @@
+﻿  hw3.c
+C:\Users\PC\source\repos\hw3\hw3\hw3.c(35,27): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\PC\source\repos\hw3\hw3\hw3.c(35,19): warning C4312: 'type cast': conversion from 'int' to 'set_t *' of greater size
+C:\Users\PC\source\repos\hw3\hw3\hw3.c(46,3): warning C4033: 'set_size' must return a value
+C:\Users\PC\source\repos\hw3\hw3\hw3.c(206,25): warning C4312: 'type cast': conversion from 'int' to 'char **' of greater size
+C:\Users\PC\source\repos\hw3\hw3\hw3.c(214,8): warning C4013: 'strlen' undefined; assuming extern returning int
+C:\Users\PC\source\repos\hw3\hw3\hw3.c(221,9): warning C4013: 'strcmp' undefined; assuming extern returning int
+C:\Users\PC\source\repos\hw3\hw3\hw3.c(238,2): warning C4090: 'return': different 'const' qualifiers
+C:\Users\PC\source\repos\hw3\hw3\hw3.c(206,33): error C2075: 'result': initialization requires a brace-enclosed initializer list
+C:\Users\PC\source\repos\hw3\hw3\hw3.c(325,2): warning C4033: 'multipleElementsSort_stringReturnResult' must return a value
