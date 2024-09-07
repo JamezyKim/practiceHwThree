@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
 
 char** sort_strings(const char* A[], int n);
 int* insertion_sort(int* arr, int n);
@@ -20,13 +22,13 @@ typedef struct {
 int main() {
 
 	//Insertion sort
-	printf("multipleElementsInsertion_sortReturnEqualArray: %d\n",multipleElementsInsertion_sortReturnEqualArray());
+	printf("multipleElementsInsertion_sortReturnEqualArray: %d\n", multipleElementsInsertion_sortReturnEqualArray());
 	printf("singleElementInsertion_sortReturnEqualArray: %d\n", singleElementInsertion_sortReturnEqualArray());
 	printf("negativeElementInsertion_sortReturnEqualArray: %d\n", negativeElementInsertion_sortReturnEqualArray());
 	printf("duplicateElementInsertion_sortReturnEqualArray: %d\n", duplicateElementInsertion_sortReturnEqualArray());
 
 	//Sort string
-	printf("multipleElementsSort_stringReturnResult: %d",multipleElementsSort_stringReturnResult());
+	printf("multipleElementsSort_stringReturnResult: %d", multipleElementsSort_stringReturnResult());
 
 	return 0;
 }
@@ -37,7 +39,7 @@ set_t* set_create_empty() {
 		return NULL;
 	}
 	newNode->size = 0;
-	
+
 	return newNode;
 }
 
@@ -59,7 +61,7 @@ void set_insert(set_t* A, int x) {
 	if (A->size >= 100) {
 		return;
 	}
-	
+
 	for (int i = 0; i < A->size; i++) {
 		if (A->elements[i] == x) {
 			return;
@@ -76,7 +78,7 @@ void set_remove(set_t* A, int x) {
 
 	for (int i = 0; i < A->size; i++) {
 		if (A->elements[i] == x) {
-			for (int j = i; j<A->size-1; j++) {
+			for (int j = i; j < A->size - 1; j++) {
 				A->elements[j] = A->elements[j + 1];
 			}
 			A->size = A->size - 1;
@@ -173,7 +175,7 @@ int* insertion_sort(int* arr, int num) {
 
 	for (int i = 0; i < num; i++) {
 		alter = 0;
-		temp = arr[i];  
+		temp = arr[i];
 
 		for (int j = i; j > 0; j--) {
 			if (arr[j] < arr[j - 1]) {
@@ -183,7 +185,7 @@ int* insertion_sort(int* arr, int num) {
 			}
 		}
 
-		
+
 		//printf("Insert %d: ", temp);
 
 		//printf(": %d swaps\n", alter);
@@ -203,7 +205,7 @@ void print(const char* A[], int n) {
 char** sort_strings(const char* A[], int n) {
 
 	const char* temp;
-	const char* result[] = (char**)malloc(sizeof(char*));
+	char** result = (char**)malloc(sizeof(char*));
 
 	if (n <= 1) {
 		return NULL;
@@ -215,14 +217,14 @@ char** sort_strings(const char* A[], int n) {
 				temp = A[i];
 				A[i] = A[j];
 				A[j] = temp;
-			
+
 			}
-			else{
+			else {
 				if (strcmp(A[i], A[j]) > 0 && strlen(A[i]) >= strlen(A[j])) {
 					temp = A[i];
 					A[i] = A[j];
 					A[j] = temp;
-					
+
 				}
 			}
 		}
@@ -233,7 +235,7 @@ char** sort_strings(const char* A[], int n) {
 	}
 	//print(A, n);
 
-	
+
 
 	return result;
 }
@@ -274,11 +276,11 @@ bool negativeElementInsertion_sortReturnEqualArray() {
 
 bool singleElementInsertion_sortReturnEqualArray() {
 	//arrange
-	int arr[] = {9};
+	int arr[] = { 9 };
 	int num = 1;
 	int* actualResult = insertion_sort(arr, num);
 	//act
-	int expectedResult[] = {9};
+	int expectedResult[] = { 9 };
 
 	//assert
 	for (int i = 0; i < num; i++) {
@@ -293,7 +295,7 @@ bool multipleElementsInsertion_sortReturnEqualArray() {
 	//arrange
 	int arr[] = { 4, 3, 6, 1, 2, 5 };
 	int num = 6;
-	int* actualResult = insertion_sort(arr,num);
+	int* actualResult = insertion_sort(arr, num);
 	//act
 	int expectedResult[] = { 1,2,3,4,5,6 };
 
@@ -310,7 +312,7 @@ bool multipleElementsSort_stringReturnResult() {
 	//arrange
 	const char* A[] = { "Wx", "ab", "Zde", "6_@7h", "7", "hij", "hhh", "b" };
 	int n = 8;
-	char** actualResult = sort_strings(A,n);
+	char** actualResult = sort_strings(A, n);
 
 	//act
 	char* expectedResult[] = { "7","b","Wx","ab","Zde","hij","hhh","6_@7h" };
